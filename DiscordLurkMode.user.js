@@ -7,6 +7,8 @@
 // @match        https://discordapp.com/*
 // @grant        none
 // @run-at       document-start
+// @updateURL    https://raw.githubusercontent.com/ReluctusB/Discord-Lurk-Mode/master/DiscordLurkMode.user.js
+// @downloadURL  https://raw.githubusercontent.com/ReluctusB/Discord-Lurk-Mode/master/DiscordLurkMode.user.js
 // ==/UserScript==
 
 function addGlobalStyle(css) {
