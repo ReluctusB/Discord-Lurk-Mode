@@ -52,11 +52,13 @@ function createBox() {
     }
 }
 
-window.addEventListener("load", function() {createBox();}, false);
-
-window.onclick = function(){
+function recheck(){
     var messageBox = document.getElementsByTagName('textarea')[0];
     if (document.getElementById('checker').checked === true) {
         messageBox.setAttribute('disabled', true);
     } else {
-        messageBox.removeAttribute('disabled');}};
+        messageBox.removeAttribute('disabled');}
+}
+
+window.addEventListener("load", function() {createBox();}, false);
+window.addEventListener("click", function() {recheck();}, false);
