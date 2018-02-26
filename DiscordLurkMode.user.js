@@ -11,6 +11,7 @@
 // @downloadURL  https://raw.githubusercontent.com/ReluctusB/Discord-Lurk-Mode/master/DiscordLurkMode.user.js
 // ==/UserScript==
 
+//addGlobalStyle by Geruhn: https://gist.github.com/Geruhn/7644599
 function addGlobalStyle(css) {
     var head, style;
     head = document.getElementsByTagName('head')[0];
