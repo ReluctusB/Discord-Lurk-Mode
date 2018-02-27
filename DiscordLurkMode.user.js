@@ -60,5 +60,5 @@ function recheck(){
         messageBox.removeAttribute('disabled');}
 }
 
-window.addEventListener("load", function() {createBox();}, false);
-window.addEventListener("click", function() {recheck();}, false);
+window.addEventListener("load", createBox, false);
+window.addEventListener("click", recheck, false);
