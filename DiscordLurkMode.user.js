@@ -54,10 +54,12 @@ function createBox() {
 
 function recheck(){
     var messageBox = document.getElementsByTagName('textarea')[0];
-    if (document.getElementById('checker').checked === true) {
-        messageBox.setAttribute('disabled', true);
-    } else {
-        messageBox.removeAttribute('disabled');}
+    if (messageBox) {
+        if (document.getElementById('checker').checked === true) {
+            messageBox.setAttribute('disabled', true);
+        } else {
+            messageBox.removeAttribute('disabled');}
+    }
 }
 
 window.addEventListener("load", createBox, false);
