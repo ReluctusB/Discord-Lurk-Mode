@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DiscordLurkMode
 // @namespace    http://tampermonkey.net/
-// @version      2.2
+// @version      2.3
 // @description  Adds a lurk mode, which disables Discord's text box. Now 20% more sylish!
 // @author       RB
 // @match        https://discordapp.com/*
@@ -24,7 +24,7 @@ function createBox() {
         checkBox.type = "checkbox";
         checkBox.id = "checker";
         var style = document.createElement("style");
-	var sheet = document.head.appendChild(style).sheet;
+        var sheet = document.head.appendChild(style).sheet;
         sheet.insertRule('.lurkSwitch {position: relative; display: inline-block; width: 25px; height: 15px;}',sheet.cssRules.length);
         sheet.insertRule('.lurkSwitch input {display:none;}',sheet.cssRules.length);
         sheet.insertRule('.lurkSlider {position: absolute;cursor: pointer;top: 0;left: 0;right: 0;bottom: 0;background-color: #ccc;-webkit-transition: .2s;transition: .2s;}',sheet.cssRules.length);
@@ -47,12 +47,23 @@ function createBox() {
 }
 
 function recheck(){
-    var messageBox = document.getElementsByTagName('textarea')[0];
+    var messageBox = document.querySelector(".markup-2BOw-j.slateTextArea-1bp44y");
+    var preMessageBox = document.getElementsByTagName('textarea')[0];
     if (messageBox) {
         if (document.getElementById('checker').checked === true) {
-            messageBox.setAttribute('disabled', true);
+            messageBox.setAttribute('contentEditable', false);
+            messageBox.setAttribute("style", "outline: none; white-space: pre-wrap; overflow-wrap: break-word;");
         } else {
-            messageBox.removeAttribute('disabled');}
+            messageBox.setAttribute('contentEditable', true);
+            messageBox.setAttribute("style", "outline: none; white-space: pre-wrap; overflow-wrap: break-word; -webkit-user-modify: none;");
+        }
+    }
+    if (preMessageBox) {
+        if (document.getElementById('checker').checked === true) {
+            preMessageBox.setAttribute('disabled', true);
+        } else {
+            preMessageBox.removeAttribute('disabled');
+        }
     }
 }
 
