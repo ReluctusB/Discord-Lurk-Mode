@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DiscordLurkMode
 // @namespace    http://tampermonkey.net/
-// @version      2.3
+// @version      2.4
 // @description  Adds a lurk mode, which disables Discord's text box. Now 20% more sylish!
 // @author       RB
 // @match        https://discordapp.com/*
@@ -12,7 +12,7 @@
 // ==/UserScript==
 
 function createBox() {
-    if (document.getElementsByTagName('textarea')[0]){
+    if (document.getElementsByTagName('textarea')[0] || document.querySelector(".markup-2BOw-j.slateTextArea-1bp44y")){
         var frag = document.createDocumentFragment();
         var outDiv = document.createElement("DIV");
         outDiv.className = "lurkDiv";
